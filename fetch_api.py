@@ -70,13 +70,5 @@ def get_book_data():
 
                 book_record.insert_one(record_dict)
             print("hello")
-            # for i in range(0,len(novel_dict['items'])):
-                    
-            #     record_dict={}
-            #     record_dict['title']=novel_dict['items'][i]['volumeInfo']['title']
-            #     record_dict['authors']=novel_dict['items'][i]['volumeInfo']['authors']
-            #     record_dict['infoLink']=novel_dict['items'][i]['volumeInfo']['infoLink']
-
-                #novel_record.insert_one(record_dict)    
-                #print('successfull')
+          
 get_book_data()

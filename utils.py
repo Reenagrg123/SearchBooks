@@ -28,11 +28,6 @@ def Search_novel(parameters):
     record = book_record.find({'category': topic})
     return record
 
-# def ShowArtistEvents(parameters):
-#     #event = parameters.get('entertainment_type')
-#     artist = parameters.get('music-artist')
-#     record = event_record.find({'artist': artist}).limit(3)
-#     return record
 
 
 def detect_intent_from_text(text, session_id, language_code='en'):
@@ -49,11 +44,11 @@ def fetch_reply(message, session_id):
         records = Search_book(dict(response.parameters))
         records = str(records)
 
-    else if response.intent.display_name == 'Search_Novel':
+    elif response.intent.display_name == 'Search_Novel':
         records = Search_novel(dict(response.parameters))
         records = str(records)
 
-    return(records)
+        return(records)
      
     else:
         return response.fulfillment_text
