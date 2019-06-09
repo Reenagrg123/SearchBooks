@@ -49,7 +49,7 @@ def fetch_reply(message, session_id):
         records = Search_book(dict(response.parameters))
         records = str(records)
 
-    else if response.intent.display_name == 'Search_Novel'::
+    else if response.intent.display_name == 'Search_Novel':
         records = Search_novel(dict(response.parameters))
         records = str(records)
 
