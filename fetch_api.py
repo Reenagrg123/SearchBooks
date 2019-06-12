@@ -4,7 +4,6 @@ import json
 import requests
 from pymongo import MongoClient
 
-
 class Api:
     
     __BASEURL = 'https://www.googleapis.com/books/v1'
@@ -43,13 +42,14 @@ class Api:
 
 client = MongoClient('mongodb+srv://Reena:Reena@cluster0-99md4.mongodb.net/test?retryWrites=true&w=majority')
 db = client.get_database('Search_Book')
-book_record = db.Search_Book  
+book_record = db.SearchBook 
 novel_record = db.Search_Novel      
 
 
 def get_book_data():
         api=Api()
-        list_books=['python','C#','java','Flask','C']
+        list_books=['python','php','data analysis','Flask','machine learning']
+
         list_novels=['A Fine Balance',"Midnight's Children",'The Glass Palace','The Interpreter Of Maladies','The Story Of My Experiments With The Truth']
 
         for i in range(0,5):
