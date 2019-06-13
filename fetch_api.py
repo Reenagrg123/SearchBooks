@@ -42,8 +42,8 @@ class Api:
 
 client = MongoClient('mongodb+srv://Reena:Reena@cluster0-99md4.mongodb.net/test?retryWrites=true&w=majority')
 db = client.get_database('Search_Book')
-book_record = db.SearchBook 
-novel_record = db.Search_Novel      
+#book_record = db.SearchBook 
+novel_record = db.novel_search     
 
 
 def get_book_data():
@@ -54,21 +54,22 @@ def get_book_data():
 
         for i in range(0,5):
             book_dict={}
-            novel_dict={}
+            book_dict={}
             book_dict=api.list('list_books[i]')
-            novel_dict=api.list('list_novels[i]')
-        #return data_dict
-            #print(book_dict)
-            print(len(book_dict['items']))
+            novel_dict=api.list("The Glass Palace")
+            #return data_dict
+            # print(book_dict)
+            #print(len(book_dict['items']))
             for i in range(0,len(book_dict['items'])):
-                
+                    
                 record_dict={}
                 record_dict['title']=book_dict['items'][i]['volumeInfo']['title']
                 record_dict['authors']=book_dict['items'][i]['volumeInfo']['authors']
                 record_dict['infoLink']=book_dict['items'][i]['volumeInfo']['infoLink']
+                record_dict['thumbnail']=book_dict['items'][i]['volumeInfo']['imageLinks']['thumbnail']
                 print(record_dict)
 
-                book_record.insert_one(record_dict)
-            print("hello")
-          
+            novel_record.insert_one(record_dict)
+            #print("hello")
+        print("done")      
 get_book_data()
